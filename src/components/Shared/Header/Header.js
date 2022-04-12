@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from './Button';
+import useAuth from '../../../hooks/useAuth';
+
 
 const Header = () => {
+  const {user,logout}= useAuth();
     let Links = [
-        { name: "Home", link: "/home" },
-        { name: "DashBoard", link: "/dashBoard" },
-        { name: "ABOUT", link: "/" },
+        { name: "Home", link: "/home" }, 
         { name: "BLOG'S", link: "/" },
-        { name: "CONTACT", link: "/" },
+        { name: "DashBoard", link: "/dashBoard" },
     ];
     let [open, setOpen] = useState(false);
     return (
@@ -34,9 +34,17 @@ const Header = () => {
             </li>
           ))
         }
-        <Button>
-          Login
-        </Button>
+        {user?.email ?
+              <span className="flex items-center">
+                <h5 className='md:ml-8 text-white'>{user?.displayName}</h5>
+                <img className="rounded-full h-10 w-10 ml-2" src={user.photoURL} alt="" />
+                <button onClick={logout} className="text-indigo-600 bg-white font-[Poppins] py-3 px-8 rounded ml-4 hover:bg-indigo-400 hover:text-white">LogOut</button>
+              </span>
+              :
+              <span className="">
+                <Link className="" aria-current="page" to='/login'><button className="text-indigo-600 bg-white font-[Poppins] py-3 px-8 rounded md:ml-8 hover:bg-indigo-400 hover:text-white">Login</button></Link>
+              </span>
+            }
       </ul>
       </div>
     </div>
