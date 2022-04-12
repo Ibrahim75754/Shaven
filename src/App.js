@@ -1,6 +1,6 @@
-
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AuthProvider from "./contexts/AuthProvider";
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import DashBoard from './components/DashBoard/DashBoard';
@@ -8,7 +8,7 @@ import DashBoard from './components/DashBoard/DashBoard';
 function App() {
   return (
     <div className="">
-     {/* <AuthProvider> */}
+     <AuthProvider>
         <Router >
           <Switch>
             <Route exact path="/">
@@ -39,7 +39,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </div>
   );
 }
