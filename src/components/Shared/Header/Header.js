@@ -19,7 +19,7 @@ const Header = () => {
         <span className='text-3xl  mr-1 pt-2'>
         <ion-icon name="logo-ionic"></ion-icon>
         </span>
-        Designer
+        Shaven
       </div>
       
       <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
