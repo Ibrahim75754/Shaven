@@ -30,7 +30,7 @@ const Login = () => {
     }
     return (
         <div className="login-body flex justify-center items-center">
-            <div className="border rounded-3 p-5 bg-gray-100 md:w-1/3">
+            <div className="border rounded-md p-20 bg-gray-100 md:w-1/3">
                 <h1 className="mb-5 text-2xl text-center">Please Login</h1>
 
 
@@ -55,7 +55,7 @@ const Login = () => {
                 </form>
 
                 <h1 className='text-center mb-2'>Or Login With</h1>
-                <button onClick={handleGoogleSignIn} className="flex flex-row items-center justify-center border-2 rounded w-full hover:bg-indigo-600 hover:text-white py-2"><img src={icon} alt='' className='h-5 w-5 mr-1  object-cover' />
+                <button onClick={handleGoogleSignIn} className="flex flex-row items-center justify-center border-2 rounded-md w-full hover:bg-indigo-600 hover:text-white py-2"><img src={icon} alt='' className='h-5 w-5 mr-1  object-cover' />
                 <h1>Google Login</h1></button>
 
                 <p className='mt-2 text-center'>New User? <Link className='text-indigo-600' to="/registration">Registration</Link></p>
