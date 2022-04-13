@@ -14,7 +14,7 @@ SwiperCore.use([Navigation, Pagination,Autoplay, Keyboard]);
 
 const Banner = () => {
     return (
-        <div className='mt-16 z-0'>
+        <div className=''>
         
         <Swiper
         navigation={true}
