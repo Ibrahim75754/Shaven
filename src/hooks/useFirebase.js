@@ -123,8 +123,8 @@ const useFirebase = () => {
 
     return  {
         user,
-        // admin,
-        // token,
+        admin,
+        token,
         loading,
         authError,
         registerUser,

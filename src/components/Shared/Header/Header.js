@@ -10,7 +10,7 @@ const Header = () => {
         fontWeight: "bold",
     }
     return (
-        <div className="text-start" style={{ marginBottom: '' }}>
+        <div className="text-start" style={{ marginBottom: '70px' }}>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{ backgroundColor: "#1E3741" }}>
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
@@ -29,17 +29,9 @@ const Header = () => {
                                 <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/allProducts">More Products</NavLink>
                             </li>
                             {user?.email && <>
+                              
                               <li className="nav-item">
-                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/myOrders">My Order</NavLink>
-                            </li>
-                              <li className="nav-item">
-                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/allOrders">All Order</NavLink>
-                            </li>
-                              <li className="nav-item">
-                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/addProduct">Add Products</NavLink>
-                            </li>
-                              <li className="nav-item">
-                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/myOrder">My Order</NavLink>
+                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/dashBoard">Dashboard</NavLink>
                             </li>
                             </>}
                         </ul>

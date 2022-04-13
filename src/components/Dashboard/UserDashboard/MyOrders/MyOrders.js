@@ -1,69 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../Shared/Footer/Footer';
-import Header from '../Shared/Header/Header';
+import { Link } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 
+const MyOrders = () => {
+    const { user } = useAuth();
+    const [orders, setOrders] = useState([]);
 
-const AllOrders = () => {
-    const [packages, setPackages] = useState([]);
     useEffect(() => {
-        fetch('http://nameless-plains-10260.herokuapp.com/myOrders')
+        fetch(`https://agile-everglades-07523.herokuapp.com/myOrders/${user.email}`)
             .then(res => res.json())
-            .then(data => setPackages(data));
-    }, []);
-    let Id = 1;
+            .then(data => setOrders(data));
+    }, [user.email]);
 
+    let Id = 1;
     const handleDelete = id => {
         const areUsure = window.confirm('Are You Sure, Want To Delete?');
         if (areUsure) {
-            fetch(`/myOrders/${id}`, {
+            fetch(`https://agile-everglades-07523.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
-                    // //console.log(data);
+                    // console.log(data);
                     if (data.deletedCount) {
                         alert('Delete Successful');
-                        const remaining = packages.filter(pac => pac._id !== id);
-                        setPackages(remaining);
+                        const remaining = orders.filter(product => product._id !== id);
+                        setOrders(remaining);
                     }
                 })
         }
     }
     return (
         <div>
-           <Header></Header>
-            <h2 className="text-center my-4 mt-5">All order list :</h2>
+            <h1>Your Orders</h1>
             <div className="table-responsive">
                 <table className="table table-hover text-center">
                     <thead>
                         <tr>
                             <th scope="col">serial</th>
-                            <th scope="col">PackageId No.</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Address</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            packages.map(pac => <tr>
+                            orders.map(product => <tr>
                                 <th scope="row">{Id++}</th>
-                                <td>{pac.packageId}</td>
-                                <td>{pac.name}</td>
-                                <td>{pac.email}</td>
-                                <td>{pac.phone}</td>
-                                <td>{pac.address}</td>
-                                <td><button onClick={() => handleDelete(pac._id)} className="btn btn-danger">Delete Order</button></td>
+                                <td>{product.name}</td>
+                                <td>{product.email}</td>
+                                <td>{product.phone}</td>
+                                <td>{product.address}</td>
+                                <td>{product.payment ? "Paid" : <Link to={`/dashboard/payment/${product._id}`}><button className="btn btn-secondary">Pay Now</button></Link>}</td>
+                                <td><button onClick={() => handleDelete(product._id)} className="btn btn-danger">Cancel Order</button></td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
-            <Footer></Footer>
         </div>
     );
 };
 
-export default AllOrders;
+export default MyOrders;
