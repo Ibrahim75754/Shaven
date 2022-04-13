@@ -7,13 +7,15 @@ const Header = () => {
   const {user,logout}= useAuth();
     let Links = [
         { name: "Home", link: "/home" }, 
-        { name: "BLOG'S", link: "/" },
-        { name: "DashBoard", link: "/dashBoard" },
+        { name: "My Orders", link: "/myOrders" },
+        { name: "All Orders", link: "/allOrders" },
+        { name: "Add Product", link: "/addProduct" },
+        { name: "Manage Product", link: "/manageProduct" },
     ];
     let [open, setOpen] = useState(false);
     return (
         <div className='shadow-md fixed z-10 w-full top-0 left-0'>
-      <div className='md:flex items-center justify-between bg-indigo-600 py-4 md:px-10 px-7'>
+      <div className=' md:flex items-center justify-between bg-indigo-600 py-3 md:px-10 px-7'>
       <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
       text-white'>
         <span className='text-3xl  mr-1 pt-2'>
