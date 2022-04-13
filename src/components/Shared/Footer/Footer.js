@@ -15,7 +15,7 @@ const Footer = () => {
                             <p><i className="fas fa-envelope-open-text"></i> g5plus@outlook.com</p>
                         </div>
                     </div>
-                    <div className="md:basis-1/3 mb-3">
+                    <div className="md:basis-1/3 mb-3 md:ml-20">
                         <div className="text-start">
                             <h4>CONTACT US</h4>
                             <p>About Us</p>
@@ -34,7 +34,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <hr />
-                <p className='text-center mt-2'>Made by : <a style={{ textDecoration: "none" }} className="text-pink-300" target="_blank" href="https://www.facebook.com/ih75754/">Md. Ibrahim Hossaim</a> </p>
+                <p className='text-center mt-2'>Made by : <a style={{ textDecoration: "none" }} className="text-pink-300" href="https://www.facebook.com/ih75754/">Md. Ibrahim Hossaim</a> </p>
             </div>
         </div>
     )

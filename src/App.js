@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AuthProvider from "./contexts/AuthProvider";
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
-import DashBoard from './components/DashBoard/DashBoard';
+
 import Registration from './components/Registration/Registration';
 
 function App() {
@@ -30,9 +30,9 @@ function App() {
             <Route path="*">
               <NotFound></NotFound>
             </Route> */}
-            <Route path="/dashBoard">
-              <DashBoard></DashBoard>
-            </Route>
+            {/* <Route path="/dashBoard">
+              
+            </Route> */}
             <Route path="/registration">
               <Registration></Registration>
             </Route>
