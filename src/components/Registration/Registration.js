@@ -30,7 +30,7 @@ const Registration = () => {
                 <h1 className="mb-5">Create An Account</h1>
 
                 <form onSubmit={handleLoginSubmit}>
-                    <div className="d-flex justify-content-center">
+                    <div className="">
                         <div className="mb-3">
                             <div className="form-group">
                                 <input className="form-control" onBlur={handleOnBlur} type="text" name="name" placeholder="Full Name" required />

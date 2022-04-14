@@ -30,11 +30,11 @@ const Login = () => {
     }
     return (
         <div className="login-body d-flex justify-content-center align-items-center">
-            <div className="text-center border rounded-3 p-5 bg-white">
-                <h1 className="mb-5">Please Login</h1>
+            <div className="text-center border rounded-3 p-5 bg-white ">
+                <h1 className="mb-4">Please Login</h1>
 
                 <form onSubmit={handleLoginSubmit} >
-                    <div className="d-flex justify-content-center">
+                    <div className="">
                         <div className="mb-3">
                             <div className="form-group">
                                 <input className="form-control" onBlur={handleOnBlur} type="email" name="email" placeholder="Email" required />
@@ -44,7 +44,7 @@ const Login = () => {
                             </div>
                             <br />
                             <div className="form-group">
-                                <button className="btn btn-success w-100" type="submit">Login</button>
+                                <button className="btn btn-outline-success w-100" type="submit">Login</button>
                             </div>
                         </div>
                     </div>
@@ -54,8 +54,8 @@ const Login = () => {
                 </div>}
 
                 <p>New User? <Link to="/registration">Registration</Link></p>
-                <div>----------Login With----------</div>
-                <button onClick={handleGoogleSignIn} className="btn bg-color mt-3 border"><img src={icon} alt="" height="30" />Google Login</button>
+                <div>---------------Login With---------------</div>
+                <button onClick={handleGoogleSignIn} className="btn btn-outline-success mt-3 border w-100"><img src={icon} alt="" height="30" className='me-2' />Google Login</button>
 
 
             </div>

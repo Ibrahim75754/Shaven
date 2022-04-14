@@ -24,40 +24,16 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route path="/dashBoard">
+            <PrivateRoute path="/dashBoard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
             <Route path="/allProducts">
               <AllProducts></AllProducts>
             </Route>
             <PrivateRoute path="/home/:productId">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            {/* 
             
-            
-            
-            
-            <Route path="*">
-              <NotFound></NotFound>
-            </Route> */}
-            {/* <PrivateRoute  path="/myOrders">
-              <MyOrders></MyOrders>
-            </PrivateRoute>
-            <PrivateRoute  path="/allOrders">
-              <AllOrders></AllOrders>
-            </PrivateRoute>
-            <PrivateRoute  path="/addProduct">
-              <AddPackage></AddPackage>
-            </PrivateRoute> */}
-            {/* 
-            <PrivateRoute  path="/managePackage">
-              <ManageAllPackage></ManageAllPackage>
-            </PrivateRoute>
-            <PrivateRoute  path="/packages/update/:id">
-              <UpdatePackage></UpdatePackage>
-            </PrivateRoute>
-             */}
             <Route path="/registration">
               <Registration></Registration>
             </Route>
