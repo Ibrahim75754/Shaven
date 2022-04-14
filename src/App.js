@@ -10,6 +10,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Registration from './components/Registration/Registration';
 import Dashboard from './components/Dashboard/Dashboard';
 import AllProducts from './components/AllProducts/AllProducts';
+import PlaceOrder from './components/PlaceOrder.js/PlaceOrder';
 
 function App() {
   return (
@@ -29,9 +30,10 @@ function App() {
             <Route path="/allProducts">
               <AllProducts></AllProducts>
             </Route>
-            {/* <PrivateRoute path="/home/:productId">
+            <PrivateRoute path="/home/:productId">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
+            {/* 
             
             
             
