@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import swal from 'sweetalert';
 
 const ManageAllOrders = () => {
     const [products, setProducts] = useState([]);
@@ -10,21 +11,35 @@ const ManageAllOrders = () => {
     let Id = 1;
 
     const handleDelete = id => {
-        const areUsure = window.confirm('Are You Sure, Want To Delete?');
-        if (areUsure) {
-            fetch(`https://agile-everglades-07523.herokuapp.com/orders/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data);
-                    if (data.deletedCount) {
-                        alert('Delete Successful');
-                        const remaining = products.filter(product => product._id !== id);
-                        setProducts(remaining);
-                    }
-                })
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this order file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`https://agile-everglades-07523.herokuapp.com/orders/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(data);
+                            if (data.deletedCount) {
+                                swal("Delete Successful", {
+                                    icon: "success",
+                                });
+                                const remaining = products.filter(product => product._id !== id);
+                                setProducts(remaining);
+                            }
+                        })
+
+                } else {
+                    swal("Order file is safe!");
+                }
+            });
+
     }
     return (
         <div>

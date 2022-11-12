@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const ManageAllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -11,21 +12,47 @@ const ManageAllProducts = () => {
     let id = 1;
 
     const handleDelete = id => {
-        const areUsure = window.confirm('Are You Sure, Want To Delete?');
-        if (areUsure) {
-            fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data);
-                    if (data.deletedCount) {
-                        alert('Delete Successful');
-                        const remaining = products.filter(product => product._id !== id);
-                        setProducts(remaining);
-                    }
-                })
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount) {
+                                swal("Delete successfull", {
+                                    icon: "success",
+                                });
+                                const remaining = products.filter(product => product._id !== id);
+                                setProducts(remaining);
+                            }
+                        })
+
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+        // const areUsure = window.confirm('Are You Sure, Want To Delete?');
+        // if (areUsure) {
+        //     fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`, {
+        //         method: 'DELETE'
+        //     })
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             if (data.deletedCount) {
+        //                 alert('Delete Successful');
+        //                 const remaining = products.filter(product => product._id !== id);
+        //                 setProducts(remaining);
+        //             }
+        //         })
+        // }
     }
     return (
         <div>

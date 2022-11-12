@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -16,7 +17,8 @@ const AddProduct = () => {
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {
-                    alert('data insert successfully');
+                    swal("Good job!", "data insert successfully!", "success");
+                    // alert('data insert successfully');
                     reset();
                 }
             })
