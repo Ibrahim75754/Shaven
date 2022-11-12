@@ -39,7 +39,7 @@ const ProductsUpdate = () => {
 
     // console.log(formData);
     const handleUpdate = e => {
-        fetch(`http://localhost:5000/products/update/${id}`, {
+        fetch(`https://agile-everglades-07523.herokuapp.com/products/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

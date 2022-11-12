@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
+import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
@@ -31,7 +32,7 @@ const PlaceOrder = () => {
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {
-                    alert('Order successfully complete');
+                    swal("Good job!", "You purchase successfully!", "success");
                     reset();
                 }
             })

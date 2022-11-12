@@ -1,7 +1,7 @@
-import Header from '../Shared/Header/Header';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
+import Header from '../Shared/Header/Header';
 
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
