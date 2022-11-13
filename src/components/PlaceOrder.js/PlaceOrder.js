@@ -25,7 +25,7 @@ const PlaceOrder = () => {
         data.productName = product.name;
         data.price = product.price;
 
-        console.log(data);
+        // console.log(data);
 
         // use AXIOS for post into data base
         axios.post('https://agile-everglades-07523.herokuapp.com/placeOrder', data)

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import swal from 'sweetalert';
 
 const ProductsUpdate = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState();
+    const [product, setProduct] = useState({});
     const [img, setImg] = useState(null);
     useEffect(() => {
         fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`)
@@ -14,42 +15,48 @@ const ProductsUpdate = () => {
 
     //Update part
 
-    const chaneName = e => {
+    const changeName = e => {
         const updateName = e.target.value;
-        const update = { name: updateName, description: product.description, price: product.price };
-        setProduct(update);
 
+        const updateProduct = { ...product };
+        updateProduct.name = updateName;
+
+        setProduct(updateProduct);
     }
-    const chaneDes = e => {
+    const changeDes = e => {
         const updatedes = e.target.value;
-        const update = { name: product.name, description: updatedes, price: product.price };
-        setProduct(update);
+
+        const updateProduct = { ...product };
+        updateProduct.description = updatedes;
+
+        setProduct(updateProduct);
+
     }
-    const chanePrice = e => {
+    const changePrice = e => {
         const updatePrice = e.target.value;
-        const update = { name: product.name, description: product.description, price: updatePrice };
-        setProduct(update);
+        const updateProduct = { ...product };
+        updateProduct.price = updatePrice;
+
+        setProduct(updateProduct);
+
     }
 
-    const formData = new FormData();
-    formData.append('name', product.name);
-    formData.append('description', product.description);
-    formData.append('price', product.price);
-    formData.append('img', img);
 
-    // console.log(formData);
     const handleUpdate = e => {
-        fetch(`https://agile-everglades-07523.herokuapp.com/products/update/${id}`, {
+        const formData = new FormData();
+        formData.append('name', product.name);
+        formData.append('description', product.description);
+        formData.append('price', product.price);
+        formData.append('img', img);
+
+        fetch(`http://localhost:5000/products/update/${id}`, {
             method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+            body: formData
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('update successful')
+                    swal("Good job!", "Data Update successful!", "success");
                 }
             })
         e.preventDefault();
@@ -61,9 +68,9 @@ const ProductsUpdate = () => {
             <div>
                 <form onSubmit={handleUpdate} className="d-flex flex-column justify-content-center align-items-center">
 
-                    <input className="w-50 mb-3" type="name" onChange={chaneName} value={product?.name || ''} />
-                    <textarea className="w-50 mb-3" onChange={chaneDes} type="text" value={product?.description || ''} />
-                    <input className="w-50 mb-3" onChange={chanePrice} type="number" value={product?.price || ''} />
+                    <input className="w-50 mb-3" type="name" onChange={changeName} value={product?.name || ''} />
+                    <textarea className="w-50 mb-3" onChange={changeDes} type="text" value={product?.description || ''} />
+                    <input className="w-50 mb-3" onChange={changePrice} type="number" value={product?.price || ''} />
                     <input
                         accept="image/*"
                         type="file"

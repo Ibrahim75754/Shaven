@@ -71,7 +71,7 @@ const ManageAllProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map(product => <tr>
+                            products.map((product, index) => <tr key={index}>
                                 <th scope="row">{id++}</th>
                                 <td><img style={{ width: "100px", height: "100px" }} src={`data:image/png;base64,${product.img}`} alt="" /></td>
                                 <td>{product.name}</td>

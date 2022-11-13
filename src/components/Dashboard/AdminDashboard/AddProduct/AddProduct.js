@@ -11,7 +11,7 @@ const AddProduct = () => {
         formData.append('description', data.description);
         formData.append('price', data.price);
         formData.append('img', data.img[0]);
-        console.log(formData);
+
         // use AXIOS for post into data base
         axios.post('https://agile-everglades-07523.herokuapp.com/products', formData)
             .then(res => {

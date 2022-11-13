@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Prosucts.css'
+import './Prosucts.css';
 
 
 const Products = () => {
@@ -18,7 +18,7 @@ const Products = () => {
             <p className="pb-3">Deep Impact Shaving Foam.Enriched with Black Carbon, it prepares your skin for a comfortable shave and provides a smooth razor glide, giving you a clean skin feeling to make a deep impact! Deep Impact Shaving Foam.</p>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
-                    products.slice(0, 6).map(product => <div className="col text-start">
+                    products.slice(0, 6).map((product, index) => <div key={index} className="col text-start">
                         <div className="card h-100 border-0 card-custom">
                             <div className="card-img">
                                 <img src={`data:image/png;base64,${product.img}`} className="card-img-top img-height p-3" alt="..." />

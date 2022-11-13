@@ -13,7 +13,7 @@ const Review = () => {
             <h1 className="mb-4 text-color">Testimonials</h1>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
-                    reviews.map(review => <div>
+                    reviews.map((review, index) => <div key={index}>
                         <div className="card mb-3 py-3 " >
                             <div className="row">
                                 <div className="col-md-4">

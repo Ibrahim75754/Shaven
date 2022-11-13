@@ -59,7 +59,7 @@ const ManageAllOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map(product => <tr>
+                            products.map((product, index) => <tr key={index}>
                                 <th scope="row">{Id++}</th>
                                 <td>{product.name}</td>
                                 <td>{product.email}</td>
