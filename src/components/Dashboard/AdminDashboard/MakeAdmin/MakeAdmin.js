@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     }
     const makeAdminSubmit = e => {
         const user = { email };
-        fetch('https://agile-everglades-07523.herokuapp.com/users/admin', {
+        fetch('https://shaven-server.vercel.app/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

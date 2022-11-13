@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://agile-everglades-07523.herokuapp.com/products/${productId}`)
+        fetch(`https://shaven-server.vercel.app/products/${productId}`)
             .then(res => res.json())
             .then(data =>
                 setProduct(data));
@@ -28,7 +28,7 @@ const PlaceOrder = () => {
         // console.log(data);
 
         // use AXIOS for post into data base
-        axios.post('https://agile-everglades-07523.herokuapp.com/placeOrder', data)
+        axios.post('https://shaven-server.vercel.app/placeOrder', data)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {

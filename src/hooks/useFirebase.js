@@ -1,6 +1,6 @@
+import { createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, getIdToken, signOut } from "firebase/auth";
 
 initializeFirebase();
 
@@ -93,7 +93,7 @@ const useFirebase = () => {
 
     // check admin
     useEffect(() => {
-        fetch(`https://agile-everglades-07523.herokuapp.com/users/${user.email}`)
+        fetch(`https://shaven-server.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -110,7 +110,7 @@ const useFirebase = () => {
 
     const saveUser = (displayName, email, method) => {
         const user = { displayName, email };
-        fetch('https://agile-everglades-07523.herokuapp.com/users', {
+        fetch('https://shaven-server.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -121,7 +121,7 @@ const useFirebase = () => {
     }
 
 
-    return  {
+    return {
         user,
         admin,
         token,

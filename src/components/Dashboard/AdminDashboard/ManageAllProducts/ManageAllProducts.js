@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 const ManageAllProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://agile-everglades-07523.herokuapp.com/products')
+        fetch('https://shaven-server.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
@@ -21,7 +21,7 @@ const ManageAllProducts = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`, {
+                    fetch(`https://shaven-server.vercel.app/products/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -41,7 +41,7 @@ const ManageAllProducts = () => {
             });
         // const areUsure = window.confirm('Are You Sure, Want To Delete?');
         // if (areUsure) {
-        //     fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`, {
+        //     fetch(`https://shaven-server.vercel.app/products/${id}`, {
         //         method: 'DELETE'
         //     })
         //         .then(res => res.json())

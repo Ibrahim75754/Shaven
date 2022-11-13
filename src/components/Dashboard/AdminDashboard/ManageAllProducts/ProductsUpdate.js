@@ -7,7 +7,7 @@ const ProductsUpdate = () => {
     const [product, setProduct] = useState({});
     const [img, setImg] = useState(null);
     useEffect(() => {
-        fetch(`https://agile-everglades-07523.herokuapp.com/products/${id}`)
+        fetch(`https://shaven-server.vercel.app/products/${id}`)
             .then(res => res.json())
             .then(data =>
                 setProduct(data));
@@ -49,7 +49,7 @@ const ProductsUpdate = () => {
         formData.append('price', product.price);
         formData.append('img', img);
 
-        fetch(`http://localhost:5000/products/update/${id}`, {
+        fetch(`https://shaven-server.vercel.app/products/update/${id}`, {
             method: 'PUT',
             body: formData
         })
