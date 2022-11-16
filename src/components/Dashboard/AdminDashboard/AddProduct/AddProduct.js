@@ -13,7 +13,7 @@ const AddProduct = () => {
         formData.append('img', data.img[0]);
 
         // use AXIOS for post into data base
-        axios.post('https://shaven-server.vercel.app/products', formData)
+        axios.post('https://rocky-cliffs-81248.herokuapp.com/products', formData)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {

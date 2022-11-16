@@ -9,7 +9,7 @@ const UserReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         // use AXIOS for post into data base
-        axios.post('https://shaven-server.vercel.app/reviews', data)
+        axios.post('https://rocky-cliffs-81248.herokuapp.com/reviews', data)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {

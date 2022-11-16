@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 const ManageAllOrders = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://shaven-server.vercel.app/orders')
+        fetch('https://rocky-cliffs-81248.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://shaven-server.vercel.app/orders/${id}`, {
+                    fetch(`https://rocky-cliffs-81248.herokuapp.com/orders/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

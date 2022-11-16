@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`https://shaven-server.vercel.app/myOrders/${user.email}`)
+        fetch(`https://rocky-cliffs-81248.herokuapp.com/myOrders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [user.email]);
@@ -16,7 +16,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const areUsure = window.confirm('Are You Sure, Want To Delete?');
         if (areUsure) {
-            fetch(`https://shaven-server.vercel.app/orders/${id}`, {
+            fetch(`https://rocky-cliffs-81248.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

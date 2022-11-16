@@ -93,7 +93,7 @@ const useFirebase = () => {
 
     // check admin
     useEffect(() => {
-        fetch(`https://shaven-server.vercel.app/users/${user.email}`)
+        fetch(`https://rocky-cliffs-81248.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -110,7 +110,7 @@ const useFirebase = () => {
 
     const saveUser = (displayName, email, method) => {
         const user = { displayName, email };
-        fetch('https://shaven-server.vercel.app/users', {
+        fetch('https://rocky-cliffs-81248.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

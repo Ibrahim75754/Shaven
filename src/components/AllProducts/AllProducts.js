@@ -6,7 +6,7 @@ import Header from '../Shared/Header/Header';
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://shaven-server.vercel.app/products')
+        fetch('https://rocky-cliffs-81248.herokuapp.com/products')
             .then(res => res.json())
             .then(data =>
                 setProducts(data));

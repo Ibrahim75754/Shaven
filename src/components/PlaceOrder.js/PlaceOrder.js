@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://shaven-server.vercel.app/products/${productId}`)
+        fetch(`https://rocky-cliffs-81248.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data =>
                 setProduct(data));
@@ -28,7 +28,7 @@ const PlaceOrder = () => {
         // console.log(data);
 
         // use AXIOS for post into data base
-        axios.post('https://shaven-server.vercel.app/placeOrder', data)
+        axios.post('https://rocky-cliffs-81248.herokuapp.com/placeOrder', data)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {
